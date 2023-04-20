@@ -1,19 +1,19 @@
 import { Body, Controller, Post, Res } from '@nestjs/common';
 import { OpenaiService } from './openai.service';
-import { OpenAI } from 'src/openai';
+import { OpenAI } from '../openai';
+ 
 
 @Controller('openai')
 export class OpenaiController {
-  constructor(
-    private readonly openaiService: OpenaiService,
-    private openAI = new OpenAI(
-      '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',
-    ),
-    private topic = 'NodeJs',
-    private model = 'text-davinci-003',
-  ) {}
+  constructor(private readonly openaiService: OpenaiService) {}
 
-  @Post('/')
+  private openAI = new OpenAI(
+    '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',
+  );
+  private topic = 'NodeJs';
+  private model = 'text-davinci-003';
+
+  @Post('/mes')
   async getOne(@Body() body, @Res() res) {
     console.log(body);
     const { message } = body;
