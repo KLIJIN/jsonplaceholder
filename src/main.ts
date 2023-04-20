@@ -1,6 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { OpenAI } from './openai';
+
 
 const colors = require('colors');
 const PORT = 8080;
@@ -17,6 +19,8 @@ async function bootstrap() {
   .build();
 const document = SwaggerModule.createDocument(app, config);
 SwaggerModule.setup('swagger', app, document);
+
+const openAI = new OpenAI('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');
 
 
   await app.listen(PORT);

@@ -3,9 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
 import { TodosModule } from './todos/todos.module';
+import { OpenaiModule } from './openai/openai.module';
 
 @Module({
-  imports: [PostsModule, TodosModule],
+  imports: [PostsModule, TodosModule, OpenaiModule],
   controllers: [AppController],
   providers: [AppService],
 })
