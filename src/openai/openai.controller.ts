@@ -8,7 +8,7 @@ export class OpenaiController {
   constructor(private readonly openaiService: OpenaiService) {}
 
   private openAI = new OpenAI(
-    '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',
+    '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',
   );
   private topic = 'NodeJs';
   private model = 'text-davinci-003';
