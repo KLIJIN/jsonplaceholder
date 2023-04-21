@@ -22,7 +22,20 @@ export class ChatGPTService {
         temperature: temperature || 0.9,
       };
       const { data } = await this.openAIApi.createCompletion(params);
+      return data;
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
 
+  async getCompletion(question) {
+    try {
+      const params: CreateCompletionRequest = {
+        prompt: question,
+        model: 'text-davinci-003',
+        temperature: 0.9,
+      };
+      const { data } = await this.openAIApi.createCompletion(params);
       return data;
     } catch (e) {
       throw new Error(e);

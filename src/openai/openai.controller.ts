@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, Res } from '@nestjs/common';
 import { ChatGPTService } from './openai.service';
 
 @Controller('openai')
@@ -9,5 +9,12 @@ export class OpenaiController {
   async createCompletion(@Body() body) {
     const { question, model, temperature } = body;
     return this.chatGPTService.createCompletion(body);
+  }
+
+
+  @Get(':mes')
+  async getCompletion(@Param() params: any) {
+    console.log(params.mes);
+    return this.chatGPTService.createCompletion(params.mes);
   }
 }
