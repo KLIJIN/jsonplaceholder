@@ -8,7 +8,7 @@ export class ChatGPTService {
   constructor() {
     const configuration = new Configuration({
       organization: '',
-      apiKey: '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',
+      apiKey: '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',
     });
 
     this.openAIApi = new OpenAIApi(configuration);
@@ -35,7 +35,9 @@ export class ChatGPTService {
         model: 'text-davinci-003',
         temperature: 0.9,
       };
+
       const { data } = await this.openAIApi.createCompletion(params);
+
       return data;
     } catch (e) {
       throw new Error(e);
