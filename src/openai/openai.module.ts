@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { OpenaiService } from './openai.service';
+import { ChatGPTService } from './openai.service';
 import { OpenaiController } from './openai.controller';
 
 @Module({
   controllers: [OpenaiController],
-  providers: [OpenaiService]
+  providers: [ChatGPTService],
 })
 export class OpenaiModule {}
